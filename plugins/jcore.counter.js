@@ -1,0 +1,2 @@
+//jCore library. www.jco.re/#license
+;$$.counter=function(e,r,c){var a=Math.random()*1e4>>>0,t=window['g'+a]={};var n=this;n.text(e);t.c=e;t.t=c/(r-e);t.t=t.t<50?50:t.t;t.s=c/t.t;t.b=(r-e)/t.s;t.i=setInterval(function(){n.text(t.c);t.c+=t.b>>>0;if(--t.s<1){clearInterval(t.i);n.text(r);delete t}},t.t)};

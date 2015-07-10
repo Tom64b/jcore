@@ -1,0 +1,2 @@
+//jCore library. www.jco.re/#license
+;var e='blur,change,click,dblclick,error,focus,focusin,focusout,hover,keydown,keypress,keyup,load,mousedown,mouseenter,mouseleave,mousemove,mouseout,mouseover,mouseup,ready,resize,scroll,select,submit,unload'.split(',');for(var i in e){var x=e[i];$$[x]=(function(e){return function(o){return this.on(e,o)}}(x))};

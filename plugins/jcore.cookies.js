@@ -1,0 +1,2 @@
+//jCore library. www.jco.re/#license
+;$.cookie=function(s,n,r){var f,o,u,t,e,i;if(n===$.U){f=s+'=';o=document.cookie.split(';');for(u in o){t=o[u].trim();if(t.indexOf(f)==0)return t.substr(f.length)};return''};if(n=='')r=-1;if(r){e=new Date();e.setTime(e.getTime()+(r*864e5));i='; expires='+e.toGMTString()}else i='';document.cookie=s+'='+n+i+'; path=/'};

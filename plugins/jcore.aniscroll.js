@@ -1,0 +1,2 @@
+//jCore library. www.jco.re/#license
+;$$.aniscroll=function(o,n){this.each(function(){var t={b:this};if(this==document.body){var c=document.documentElement;c.scrollTop++;if(c.scrollTop!==0)t.b=document.documentElement};t.steps=(n/50);t.inc=(t.b.scrollTop-o)/(n/50);(function(n){n.i=setInterval(function(){n.b.scrollTop-=n.inc;if(--n.steps<1){clearInterval(n.i)}},50)})(t)})};
