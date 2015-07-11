@@ -1,5 +1,6 @@
 # jCore - a minimalist 4kB jQuery clone
 
+<pre>
 Functions:
 each() - Iterates through every element in the collection of matched elements invoking callback on every one of them
 on() - Attaches callback function to one or more events of the matched elements. Events should be space-separated
@@ -66,6 +67,7 @@ jcore.browsers
 	isMac - Returns true if a web browser is running under MacOS 
 	isUnix - Returns true if a web browser is running under Unix OS 
 	isLinux - Returns true if a web browser is running under Linux OS 	
+</pre>	
 <hr>
 License: <a href="http://opensource.org/licenses/MIT">MIT</a>
 
