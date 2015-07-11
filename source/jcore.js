@@ -1,4 +1,3 @@
-//jCore library. www.jco.re/#license
 function jCore(selector, context) 
 {
 	if (selector === $.U) return this;
@@ -32,7 +31,7 @@ $.ajax = function(isGET, url, data, callback)
 	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function()
 	{
-	    if (xmlhttp.readyState == 4)
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
 	    {
 			headers = xmlhttp.getResponseHeader(contentType);
 			result = xmlhttp.responseText;
@@ -253,13 +252,19 @@ $$.text = function(text)
 }
 $$.clone = function()
 {
-	return !this[0] ? new $ : this[0].cloneNode();
+	return !this[0] ? new $ : $(this[0].cloneNode(1));
 }
 $$.append = function(element)
 {
 	this.each(function()
 	{
-		this.insertAdjacentHTML('beforeend', element);
+		if (typeof element == 'string') 
+			this.insertAdjacentHTML('beforeend', element);
+		else
+		{
+			if (element instanceof $) element = element.get(0);			 
+			this.appendChild(element);
+		}
 	})
 	return this;
 }
@@ -298,7 +303,7 @@ $$.gt = function(index)
 	var els = this.slice(index+1);
 	return $(els);
 }
-//http://www.javascriptkit.com/javatutors/objdetect3.shtml
+
 $.isWebkit = function()
 {
 	return !!window.webkitURL;
@@ -321,70 +326,6 @@ $.prefix = function(property)
 	for (var i in prefixes)
 		if (document.body.style[prefixes[i]+property] !== undefined) return prefixes[i];
 	return false;
-}
-$$.animate = function(styles,time, callback)
-{
-	var prefix = $.prefix('animation');
-	if (prefix === false) return this;
-	
-	var rand = Math.random()*1e5>>>0;
-	var CSS = '';
-	for (var i in styles)
-	{
-		CSS += i + ':' + styles[i] + ';';
-	}
-	$('body').append('<style id="s' + rand + '">@' + prefix + 'keyframes k' + rand + '{to {' + CSS + '}}<'+'/style>');
-	
-	var timeSec = time/1000;
-	this.each(function()
-	{
-		var curStyle = this.style[prefix+'animation'] + ',k' + rand + ' '+ timeSec + 's linear forwards';
-		curStyle = curStyle[0] == ',' ? curStyle.substr(1) : curStyle;
-		
-		$(this).data('k' + rand, JSON.stringify(CSS) ).on('animationstart', function()
-		{
-			var loopNum = $(this).data('loop')*1 +1;
-			$(this).data('loop', loopNum);
-
-		}).css(prefix+'animation', curStyle).on('animationend', function(ev)
-		{
-			var loopNum = $(this).data('loop')*1 -1;
-			$(this).data('loop', loopNum);
-					
-			if (loopNum == 0)
-			{
-				$(this).css(prefix+'animation', '');
-				if (callback !== $.U) callback();
-			}
-			var animCSS = $(this).data(ev.animationName);
-			$(this).css( JSON.parse(animCSS) ).data(ev.animationName, '');
-		});
-	})
-	return this;
-}
-$$.fadeIn = function(time,callback)
-{
-	this.each(function()
-	{
-		var current = $(this);
-		var opac = current.css('opacity');
-		opac = opac === '' ? 1 : opac;	
-		current.css('opacity', 0).show().animate({opacity: opac},time,callback);
-	})
-	return this;
-}
-$$.fadeOut = function(time,callback)
-{
-	this.each(function()
-	{
-		var current = $(this);
-		current.animate({opacity: 0},time,function()
-		{
-			current.css('opacity', '').hide();
-			callback();
-		});
-	})
-	return this;
 }
 $$.serialize = function()
 {
