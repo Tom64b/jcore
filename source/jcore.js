@@ -303,23 +303,6 @@ $$.gt = function(index)
 	var els = this.slice(index+1);
 	return $(els);
 }
-
-$.isWebkit = function()
-{
-	return !!window.webkitURL;
-}
-$.isMozilla = function()
-{
-	return !!window.mozInnerScreenY;
-}
-$.isOpera = function()
-{
-	return !!window.opera;
-}
-$.isIE = function()
-{
-	return !!document.documentMode;
-}
 $.prefix = function(property)
 {
 	var prefixes = '@-webkit-@-moz-@-o-@-ms-@-khtml-'.split('@');
