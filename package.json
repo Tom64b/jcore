@@ -1,0 +1,22 @@
+{
+  "name": "jcore.js",
+  "version": "1.0.1",
+  "description": "A minimalist 4kB jQuery clone",
+  "main": "jcore.min.js",
+  "directories": {
+    "source": "source",
+    "plugins": "plugins"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Tom64b/jcore.git"
+  },
+  "author": "jCo.re",
+  "license": "CC-BY-3.0",
+  "bugs": {
+    "url": "https://github.com/Tom64b/jcore/issues"
+  },
+  "devDependencies": {
+  },
+  "homepage": "http://jco.re"
+}
