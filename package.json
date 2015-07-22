@@ -1,6 +1,6 @@
 {
   "name": "jcore.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A minimalist 4kB jQuery clone",
   "main": "jcore.min.js",
   "directories": {
